@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <p>The Current Local Time In </p>
+    <h1 class="display-4">@Model.Clock.TimeZone.Id</h1>
+    <h2>@Model.Clock.Local.ToString("f")</h2>
+</div>
+
+<form method="post">
+    <div class="form-group">
+        <select asp-for="TimeZoneId" asp-items="Model.TimeZones" class="form-control form-control-lg">
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update Time Zone</button>
+    </div>
+</form>
